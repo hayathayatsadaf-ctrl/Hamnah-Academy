@@ -1,0 +1,1305 @@
+
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Humnah Cricket Academy - Premium Cricket Ground & Net Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+ 
+  </head>
+  <body class="bg-slate-900 text-slate-100 overflow-x-hidden">
+     <!-- Navigation -->
+<nav
+  class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300"
+  id="navbar"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <div
+          class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-700 rounded-lg flex items-center justify-center stump-shadow"
+        >
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+            />
+          </svg>
+        </div>
+
+        <span
+          class="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent"
+        >
+          Humnah Cricket Academy
+        </span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#facilities" class="text-slate-300 hover:text-green-400 transition-colors font-medium">
+          Facilities
+        </a>
+        <a href="#booking" class="text-slate-300 hover:text-green-400 transition-colors font-medium">
+          Book Now
+        </a>
+        <a href="#membership" class="text-slate-300 hover:text-green-400 transition-colors font-medium">
+          Membership
+        </a>
+
+        <button
+          onclick="toggleLogin()"
+          class="px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full font-semibold transition-all transform hover:scale-105"
+        >
+          Sign In
+        </button>
+      </div>
+
+      <!-- Hamburger Button (Mobile) -->
+      <button
+        id="hamburger"
+        class="md:hidden p-2 rounded-lg hover:bg-slate-800 transition"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+        onclick="toggleMobileMenu()"
+      >
+        <span class="hamburger-line line1"></span>
+        <span class="hamburger-line line2"></span>
+        <span class="hamburger-line line3"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu (must be OUTSIDE desktop menu) -->
+    <div id="mobileMenu" class="md:hidden mobile-menu">
+      <div class="px-4 pb-4 pt-3 space-y-2">
+        <a href="#facilities" class="mobile-link" onclick="closeMobileMenu()">Facilities</a>
+        <a href="#booking" class="mobile-link" onclick="closeMobileMenu()">Book Now</a>
+        <a href="#membership" class="mobile-link" onclick="closeMobileMenu()">Membership</a>
+
+        <button
+          onclick="toggleLogin(); closeMobileMenu();"
+          class="w-full mt-2 px-4 py-3 bg-green-600 hover:bg-green-700 rounded-xl font-semibold transition"
+        >
+          Sign In
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Overlay (keep just after nav) -->
+<div
+  id="menuOverlay"
+  class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-40 md:hidden"
+  onclick="closeMobileMenu()"
+></div>
+
+
+
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-30"
+    >
+      <div class="absolute inset-0 grass-gradient pitch-pattern"></div>
+      <div
+        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"
+      ></div>
+
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
+        <div
+          class="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 mb-8 mt-3 animate-pulse"
+        >
+          <span class="w-2 h-2  bg-green-500 rounded-full mr-2"></span>
+          Live Availability Updated
+        </div>
+
+        <h1
+          class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+        >
+          Book Your
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-500 to-green-600"
+            >Perfect Pitch</span
+          >
+        </h1>
+
+        <p
+          class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 font-light"
+        >
+          Professional cricket grounds and practice nets available for instant
+          booking. From casual net sessions to competitive matches.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <button
+            onclick="scrollToBooking()"
+            class="group px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full font-bold text-lg transition-all transform hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 flex items-center gap-2"
+          >
+            Book Now
+            <svg
+              class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </button>
+          <button
+            onclick="showFacilities()"
+            class="px-8 py-4 border-2 border-slate-700 hover:border-green-500 rounded-full font-bold text-lg transition-all hover:bg-slate-800"
+          >
+            View Facilities
+          </button>
+        </div>
+
+        <!-- Live Stats -->
+        <div
+          class="mt-16 mb-24 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+        >
+          <div
+            class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700"
+          >
+            <div class="text-3xl font-bold text-green-400 mb-1">12</div>
+            <div class="text-slate-400 text-sm uppercase tracking-wider">
+              Professional Grounds
+            </div>
+          </div>
+          <div
+            class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700"
+          >
+            <div class="text-3xl font-bold text-green-400 mb-1">24</div>
+            <div class="text-slate-400 text-sm uppercase tracking-wider">
+              Practice Nets
+            </div>
+          </div>
+          <div
+            class="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700"
+          >
+            <div class="text-3xl font-bold text-green-400 mb-1">98%</div>
+            <div class="text-slate-400 text-sm uppercase tracking-wider">
+              Satisfaction Rate
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <!-- Decorative Elements -->
+<div
+  class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-900 to-transparent pointer-events-none"
+></div>
+</section>
+
+<!-- Quick Booking Widget -->
+<section id="booking" class="py-20 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      class="bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-slate-700 shadow-2xl
+             -mt-12 md:-mt-16 lg:-mt-20 relative z-20"
+    >
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Booking Type Selection (AS IT IS) -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+            <span
+              class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-sm"
+              >1</span
+            >
+            Select Booking Type
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div
+              onclick="selectBookingType('match')"
+              id="match-card"
+              class="booking-card cursor-pointer p-6 rounded-2xl border-2 border-slate-700 bg-slate-900/50 hover:border-green-500/50 group transition"
+            >
+              <div
+                class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h4 class="font-bold text-lg mb-2">Match Booking</h4>
+              <p class="text-slate-400 text-sm">
+                Full ground with pitch for competitive matches. 20+ players.
+              </p>
+              <div class="mt-4 text-green-400 font-semibold">
+                From ₹3,500/hour
+              </div>
+            </div>
+
+            <div
+              onclick="selectBookingType('nets')"
+              id="nets-card"
+              class="booking-card cursor-pointer p-6 rounded-2xl border-2 border-slate-700 bg-slate-900/50 hover:border-green-500/50 group transition"
+            >
+              <div
+                class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6 text-blue-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                  />
+                </svg>
+              </div>
+              <h4 class="font-bold text-lg mb-2">Net Practice</h4>
+              <p class="text-slate-400 text-sm">
+                Individual or small group practice sessions. Bowling machine
+                available.
+              </p>
+              <div class="mt-4 text-blue-400 font-semibold">
+                From ₹800/hour
+              </div>
+            </div>
+          </div>
+
+          <!-- Date & Time Selection -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-400 mb-2"
+                >Select Date</label
+              >
+              <input
+                type="date"
+                id="booking-date"
+                class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors"
+                onchange="updateTimeSlots(); revealBookingDetailsIfReady(); calculateTotal();"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-slate-400 mb-2"
+                >Available Time Slots</label
+              >
+              <div
+                id="time-slots"
+                class="grid grid-cols-3 sm:grid-cols-4 gap-2"
+              >
+                <!-- Slots generated by JS -->
+              </div>
+              <p class="text-xs text-slate-500 mt-2">
+                Slot select karo (green highlight) — tabhi summary open hogi.
+              </p>
+            </div>
+          </div>
+
+          <!-- ✅ EXTRA FEATURES (ADDED) -->
+          <div class="mt-6 space-y-4">
+            <!-- Players -->
+            <div class="bg-slate-900/40 border border-slate-700 rounded-2xl p-4">
+              <label class="block text-sm font-medium text-slate-400 mb-2">Players / Team Size</label>
+              <input
+                id="players"
+                type="number"
+                min="1"
+                value="10"
+                class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors"
+                placeholder="e.g. 20 for match"
+                oninput="calculateTotal()"
+              />
+              <p id="players-hint" class="text-xs text-slate-500 mt-2">
+                Tip: Match booking usually 20+ players, nets 1–6 players.
+              </p>
+            </div>
+
+            <!-- Add-ons -->
+            <div class="bg-slate-900/40 border border-slate-700 rounded-2xl p-4">
+              <div class="flex items-center justify-between mb-3">
+                <p class="text-sm font-medium text-slate-300">Add-ons</p>
+                <p class="text-xs text-slate-500">Optional</p>
+              </div>
+
+              <div class="space-y-3">
+                <label class="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-900 border border-slate-700 cursor-pointer hover:border-slate-600">
+                  <span class="flex items-center gap-3">
+                    <input type="checkbox" class="addon" data-name="Bowling Machine" data-price="300" onchange="calculateTotal()" />
+                    <span class="text-slate-300">Bowling Machine</span>
+                  </span>
+                  <span class="text-slate-400 text-sm">+ ₹300/hr</span>
+                </label>
+
+                <label class="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-900 border border-slate-700 cursor-pointer hover:border-slate-600">
+                  <span class="flex items-center gap-3">
+                    <input type="checkbox" class="addon" data-name="Floodlights" data-price="500" onchange="calculateTotal()" />
+                    <span class="text-slate-300">Floodlights</span>
+                  </span>
+                  <span class="text-slate-400 text-sm">+ ₹500/hr</span>
+                </label>
+
+                <label class="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-900 border border-slate-700 cursor-pointer hover:border-slate-600">
+                  <span class="flex items-center gap-3">
+                    <input type="checkbox" class="addon" data-name="Coach (On-ground)" data-price="700" onchange="calculateTotal()" />
+                    <span class="text-slate-300">Coach (On-ground)</span>
+                  </span>
+                  <span class="text-slate-400 text-sm">+ ₹700/hr</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Coupon -->
+            <div class="bg-slate-900/40 border border-slate-700 rounded-2xl p-4">
+              <label class="block text-sm font-medium text-slate-400 mb-2">Coupon Code</label>
+              <div class="flex gap-2">
+                <input
+                  id="coupon"
+                  type="text"
+                  class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors"
+                  placeholder="Try: SAVE10 or FLAT200"
+                />
+                <button
+                  onclick="applyCoupon()"
+                  class="px-4 py-3 rounded-xl bg-slate-700 hover:bg-slate-600 font-semibold transition"
+                >
+                  Apply
+                </button>
+              </div>
+              <p id="coupon-msg" class="text-xs text-slate-500 mt-2"></p>
+            </div>
+          </div>
+        </div>
+
+       <!-- Booking Summary -->
+<div class="bg-slate-900/50 rounded-2xl p-8 border border-slate-700">
+  <h3 class="text-2xl font-bold mb-6">Booking Summary</h3>
+
+  <div id="empty-state" class="text-center py-12 text-slate-500">
+    <svg
+      class="w-16 h-16 mx-auto mb-4 opacity-50"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.5"
+        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+      />
+    </svg>
+    <p>Select a booking type and time to see details</p>
+  </div>
+
+  <div id="booking-details" class="hidden space-y-6">
+    <div class="flex justify-between items-center py-3 border-b border-slate-800">
+      <span class="text-slate-400">Type</span>
+      <span id="summary-type" class="font-semibold text-white">-</span>
+    </div>
+
+    <div class="flex justify-between items-center py-3 border-b border-slate-800">
+      <span class="text-slate-400">Date</span>
+      <span id="summary-date" class="font-semibold text-white">-</span>
+    </div>
+
+    <div class="flex justify-between items-center py-3 border-b border-slate-800">
+      <span class="text-slate-400">Time</span>
+      <span id="summary-time" class="font-semibold text-white">-</span>
+    </div>
+
+    <div class="flex justify-between items-center py-3 border-b border-slate-800">
+      <span class="text-slate-400">Duration</span>
+      <select
+        id="duration"
+        class="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1 text-white text-sm"
+        onchange="calculateTotal()"
+      >
+        <option value="1">1 Hour</option>
+        <option value="2" selected>2 Hours</option>
+        <option value="3">3 Hours</option>
+        <option value="4">4 Hours</option>
+      </select>
+    </div>
+
+    <!-- ✅ EXTRA FEATURES START -->
+    <div class="bg-slate-900/40 border border-slate-700 rounded-xl p-4 space-y-4">
+      <h4 class="font-semibold text-slate-200">Quick Details</h4>
+
+      <!-- Contact -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">Player Name</label>
+          <input
+            id="bk-name"
+            type="text"
+            placeholder="Your name"
+            class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white focus:border-green-500 focus:outline-none"
+          />
+        </div>
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">Phone Number</label>
+          <input
+            id="bk-phone"
+            type="tel"
+            placeholder="10-digit mobile"
+            class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white focus:border-green-500 focus:outline-none"
+          />
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">Special Request (optional)</label>
+        <textarea
+          id="bk-notes"
+          rows="2"
+          placeholder="e.g. Need balls, water, umpire, etc."
+          class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white focus:border-green-500 focus:outline-none"
+        ></textarea>
+      </div>
+
+      <!-- Pay option -->
+      <div class="space-y-2">
+        <p class="text-xs text-slate-400">Payment Option</p>
+
+        <div class="flex flex-wrap gap-2">
+          <label class="flex items-center gap-2 px-3 py-2 rounded-lg border border-slate-700 bg-slate-900 cursor-pointer">
+            <input type="radio" name="payopt" id="pay-full" checked onchange="updatePaySplit()" />
+            <span class="text-sm text-slate-200">Pay Full</span>
+          </label>
+
+          <label class="flex items-center gap-2 px-3 py-2 rounded-lg border border-slate-700 bg-slate-900 cursor-pointer">
+            <input type="radio" name="payopt" id="pay-advance" onchange="updatePaySplit()" />
+            <span class="text-sm text-slate-200">30% Advance</span>
+          </label>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-slate-900 border border-slate-700 rounded-lg p-3">
+            <p class="text-xs text-slate-400">Pay Now</p>
+            <p id="pay-now" class="text-lg font-bold text-green-400">₹0</p>
+          </div>
+          <div class="bg-slate-900 border border-slate-700 rounded-lg p-3">
+            <p class="text-xs text-slate-400">Pay Later</p>
+            <p id="pay-later" class="text-lg font-bold text-slate-200">₹0</p>
+          </div>
+        </div>
+      </div>
+
+      <p id="bk-warn" class="text-xs text-red-300 hidden">
+        Please fill Name & valid Phone number before payment.
+      </p>
+    </div>
+    <!-- ✅ EXTRA FEATURES END -->
+
+    <!-- Total + CTA -->
+    <div class="pt-2">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-lg font-semibold">Total Amount</span>
+        <span id="total-amount" class="text-3xl font-bold text-green-400">₹0</span>
+      </div>
+
+      <button
+        onclick="proceedToPayment()"
+        class="w-full py-4 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-green-500/25 transition-all transform hover:scale-[1.02]"
+      >
+        Proceed to Payment
+      </button>
+
+      <p class="text-center text-xs text-slate-500 mt-4">
+        Free cancellation up to 24 hours before
+      </p>
+    </div>
+  </div>
+</div>
+
+
+            <!-- ✅ PRICE BREAKDOWN (ADDED) -->
+            <div class="bg-slate-900/50 border border-slate-700 rounded-xl p-4 space-y-2">
+              <div class="flex justify-between text-sm">
+                <span class="text-slate-400">Base (per hour)</span>
+                <span id="bd-base" class="text-slate-200">₹0</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-slate-400">Add-ons (per hour)</span>
+                <span id="bd-addons" class="text-slate-200">₹0</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-slate-400">Subtotal</span>
+                <span id="bd-subtotal" class="text-slate-200">₹0</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-slate-400">Discount</span>
+                <span id="bd-discount" class="text-slate-200">- ₹0</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-slate-400">GST (18%)</span>
+                <span id="bd-gst" class="text-slate-200">₹0</span>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-lg font-semibold">Total Amount</span>
+                <span id="total-amount" class="text-3xl font-bold text-green-400">₹0</span>
+              </div>
+
+              <button
+                onclick="proceedToPayment()"
+                class="w-full py-4 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-green-500/25 transition-all transform hover:scale-[1.02]"
+              >
+                Proceed to Payment
+              </button>
+
+              <p class="text-center text-xs text-slate-500 mt-4">
+                Free cancellation up to 24 hours before
+              </p>
+
+              <p id="validation-msg" class="text-center text-xs text-red-300 mt-3 hidden"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+    <!-- Facilities Showcase -->
+    <section id="facilities" class="py-24 bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            World-Class Facilities
+          </h2>
+          <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+            Professional-grade surfaces and equipment for every level of play
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Ground 1 -->
+          <div
+            class="group relative overflow-hidden rounded-2xl cursor-pointer"
+          >
+            <div class="aspect-[4/3] bg-slate-800 relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=800&auto=format&fit=crop"
+                alt="Main Ground"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"
+              ></div>
+              <div
+                class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+              >
+                Available
+              </div>
+            </div>
+            <div
+              class="p-6 bg-slate-800 border border-slate-700 border-t-0 rounded-b-2xl"
+            >
+              <h3 class="text-xl font-bold mb-2">Stadium Ground A</h3>
+              <p class="text-slate-400 text-sm mb-4">
+                Turf pitch with floodlights, pavilion access, and electronic
+                scoreboard.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-sm text-slate-300">
+                  <svg
+                    class="w-4 h-4 text-green-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                  <span>4.9 (128 reviews)</span>
+                </div>
+                <span class="text-green-400 font-bold">₹3,500/hr</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ground 2 -->
+          <div
+            class="group relative overflow-hidden rounded-2xl cursor-pointer"
+          >
+            <div class="aspect-[4/3] bg-slate-800 relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1562077772-3bd9f92d1c1f?q=80&w=800&auto=format&fit=crop"
+                alt="Practice Nets"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"
+              ></div>
+              <div
+                class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+              >
+                Nets
+              </div>
+            </div>
+            <div
+              class="p-6 bg-slate-800 border border-slate-700 border-t-0 rounded-b-2xl"
+            >
+              <h3 class="text-xl font-bold mb-2">Pro Batting Cages</h3>
+              <p class="text-slate-400 text-sm mb-4">
+                6-lane facility with bowling machine, video analysis, and
+                coaching support.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-sm text-slate-300">
+                  <svg
+                    class="w-4 h-4 text-green-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                  <span>4.8 (96 reviews)</span>
+                </div>
+                <span class="text-blue-400 font-bold">₹800/hr</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ground 3 -->
+          <div
+            class="group relative overflow-hidden rounded-2xl cursor-pointer"
+          >
+            <div class="aspect-[4/3] bg-slate-800 relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1594470117722-de4b9a02ebed?q=80&w=800&auto=format&fit=crop"
+                alt="Indoor Facility"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"
+              ></div>
+              <div
+                class="absolute top-4 right-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+              >
+                Indoor
+              </div>
+            </div>
+            <div
+              class="p-6 bg-slate-800 border border-slate-700 border-t-0 rounded-b-2xl"
+            >
+              <h3 class="text-xl font-bold mb-2">Indoor Center</h3>
+              <p class="text-slate-400 text-sm mb-4">
+                All-weather facility with synthetic pitch and climate control.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-sm text-slate-300">
+                  <svg
+                    class="w-4 h-4 text-green-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                  <span>4.9 (64 reviews)</span>
+                </div>
+                <span class="text-purple-400 font-bold">₹2,200/hr</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-24 bg-slate-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center p-6">
+            <div
+              class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-green-400"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h4 class="font-bold text-lg mb-2">Real-Time Booking</h4>
+            <p class="text-slate-400 text-sm">
+              Instant confirmation with live availability updates
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div
+              class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-blue-400"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <h4 class="font-bold text-lg mb-2">Secure Payments</h4>
+            <p class="text-slate-400 text-sm">
+              UPI, Cards, and Net Banking with SSL encryption
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div
+              class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-purple-400"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <h4 class="font-bold text-lg mb-2">Flexible Cancellation</h4>
+            <p class="text-slate-400 text-sm">
+              Full refund up to 24 hours before booking
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div
+              class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-orange-400"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </div>
+            <h4 class="font-bold text-lg mb-2">Team Management</h4>
+            <p class="text-slate-400 text-sm">
+              Invite players and manage squad lists easily
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="py-24 relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Player Memberships
+          </h2>
+          <p class="text-slate-400 text-lg">
+            Save more with regular play packages
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Basic -->
+          <div
+            class="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700 hover:border-slate-600 transition-all"
+          >
+            <h3 class="text-xl font-bold text-slate-300 mb-2">
+              Weekend Warrior
+            </h3>
+            <div class="text-4xl font-bold mb-6">
+              ₹2,999<span class="text-lg text-slate-500 font-normal"
+                >/month</span
+              >
+            </div>
+            <ul class="space-y-4 mb-8 text-slate-400">
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >4 Net Sessions/month
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >Off-peak hours only
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >Basic equipment included
+              </li>
+            </ul>
+            <button
+              class="w-full py-3 border border-slate-600 rounded-xl font-semibold hover:bg-slate-700 transition-colors"
+            >
+              Select Plan
+            </button>
+          </div>
+
+          <!-- Pro -->
+          <div
+            class="bg-gradient-to-b from-green-600/20 to-emerald-900/20 rounded-3xl p-8 border-2 border-green-500/50 relative transform scale-105 shadow-2xl shadow-green-900/20"
+          >
+           <div
+  class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
+         bg-gradient-to-r from-green-500 to-emerald-600
+         text-white text-sm font-bold px-4 py-1 rounded-full shadow-lg"
+>
+  Most Popular
+</div>
+            <h3 class="text-xl font-bold text-green-400 mb-2">Professional</h3>
+            <div class="text-4xl font-bold mb-6">
+              ₹7,999<span class="text-lg text-slate-500 font-normal"
+                >/month</span
+              >
+            </div>
+            <ul class="space-y-4 mb-8 text-slate-300">
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >Unlimited Net Sessions
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >Priority booking (24h early)
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >Video analysis included
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >1 Match ground credit/month
+              </li>
+            </ul>
+            <button
+              class="w-full py-3 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl font-semibold hover:shadow-lg transition-all"
+            >
+              Select Plan
+            </button>
+          </div>
+
+          <!-- Elite -->
+          <div
+            class="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700 hover:border-slate-600 transition-all"
+          >
+            <h3 class="text-xl font-bold text-purple-400 mb-2">
+              Elite Academy
+            </h3>
+            <div class="text-4xl font-bold mb-6">
+              ₹14,999<span class="text-lg text-slate-500 font-normal"
+                >/month</span
+              >
+            </div>
+            <ul class="space-y-4 mb-8 text-slate-400">
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >Everything in Pro
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >Personal coaching (2x/month)
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >3 Match ground credits
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  /></svg
+                >Fitness center access
+              </li>
+            </ul>
+            <button
+              class="w-full py-3 border border-slate-600 rounded-xl font-semibold hover:bg-slate-700 transition-colors"
+            >
+              Select Plan
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center gap-2 mb-4">
+              <div
+                class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                  />
+                </svg>
+              </div>
+              <span class="text-xl font-bold text-white">Stumps Arena</span>
+            </div>
+            <p class="text-slate-400 mb-6 max-w-sm">
+              Professional cricket facilities for players of all levels. Book
+              grounds, nets, and coaching sessions online.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-green-600 hover:text-white transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-green-600 hover:text-white transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-white mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-slate-400">
+              <li>
+                <a href="#" class="hover:text-green-400 transition-colors"
+                  >Book Ground</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-400 transition-colors"
+                  >Net Practice</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-400 transition-colors"
+                  >Membership</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-green-400 transition-colors"
+                  >Coaching</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-white mb-4">Contact</h4>
+            <ul class="space-y-2 text-slate-400">
+              <li class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                +91 98765 43210
+              </li>
+              <li class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                info@stumpsarena.com
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-slate-500 text-sm">
+            © 2024 Stumps Arena. All rights reserved.
+          </p>
+          <div class="flex gap-6 text-sm text-slate-500">
+            <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+            <a href="#" class="hover:text-slate-300">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div
+      id="payment-modal"
+      class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4"
+    >
+      <div
+        class="bg-slate-800 rounded-3xl max-w-md w-full p-8 border border-slate-700 transform scale-95 opacity-0 transition-all duration-300"
+        id="payment-content"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-2xl font-bold">Complete Booking</h3>
+          <button
+            onclick="closePayment()"
+            class="text-slate-400 hover:text-white"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div
+          class="bg-slate-900/50 rounded-xl p-4 mb-6 border border-slate-700"
+        >
+          <div class="flex justify-between mb-2">
+            <span class="text-slate-400">Amount</span>
+            <span id="payment-amount" class="font-bold text-xl text-green-400"
+              >₹0</span
+            >
+          </div>
+          <div class="text-xs text-slate-500">Includes 18% GST</div>
+        </div>
+
+        <div class="space-y-4">
+          <button
+            class="w-full py-3 bg-slate-700 hover:bg-slate-600 rounded-xl flex items-center justify-center gap-3 transition-colors group"
+          >
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                fill="#FF5722"
+              />
+            </svg>
+            <span>Pay with UPI</span>
+          </button>
+          <button
+            class="w-full py-3 bg-slate-700 hover:bg-slate-600 rounded-xl flex items-center justify-center gap-3 transition-colors"
+          >
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+              <rect width="24" height="24" rx="4" fill="#1A1F71" />
+              <path
+                d="M7 15V9h2l1.5 3 1.5-3h2v6h-1.5v-3.5L10.5 15H9l-1.5-3.5V15H7zm9 0h-2V9h2v6z"
+                fill="white"
+              />
+            </svg>
+            <span>Credit/Debit Card</span>
+          </button>
+        </div>
+
+        <div class="mt-6 text-center text-xs text-slate-500">
+          Secured by 256-bit SSL encryption
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js">
+   
+    </script>
+  </body>
+</html>
