@@ -91,3 +91,179 @@ h1, h2, h3, h4 {
   }
 }
 
+
+
+/* ================================
+   ✅ RESPONSIVE FIX PACK (MOBILE)
+   Paste this at END of style.css
+================================ */
+
+/* 1) Global mobile safety */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Prevent long content from breaking layout */
+* {
+  max-width: 100%;
+}
+
+/* Images never overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 2) Booking container spacing fixes */
+#booking .max-w-7xl {
+  width: 100%;
+}
+
+#booking .bg-slate-800\/80 {
+  /* On small screens: reduce heavy negative margin */
+  margin-top: -2.5rem;
+}
+
+@media (max-width: 640px) {
+  /* reduce padding for mobile */
+  #booking .bg-slate-800\/80 {
+    padding: 18px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* 3) Booking cards ALWAYS visible + stacked on mobile */
+#match-card,
+#nets-card {
+  display: block !important;
+  width: 100% !important;
+  opacity: 1 !important; /* prevent accidental fade */
+  transform: none !important;
+}
+
+/* Touch devices: remove hover translate that can cause jump */
+@media (hover: none) {
+  .booking-card:hover {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* booking type cards should be one per row */
+  #booking .grid.grid-cols-1.sm\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* reduce card padding */
+  #match-card,
+  #nets-card {
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+
+  /* icon box smaller */
+  #match-card .w-12.h-12,
+  #nets-card .w-12.h-12 {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* card text size fix */
+  #match-card h4,
+  #nets-card h4 {
+    font-size: 16px !important;
+  }
+  #match-card p,
+  #nets-card p {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* 4) Booking section grid (2 columns -> 1 column on small) */
+@media (max-width: 1024px) {
+  /* Ensure left-right becomes stacked nicely */
+  #booking .grid.grid-cols-1.lg\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 5) Time slots grid always clean */
+#time-slots button {
+  min-height: 42px;
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  #time-slots {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  #time-slots button {
+    font-size: 12px !important;
+    padding: 10px 8px !important;
+  }
+}
+
+/* 6) Inputs, selects always full width on mobile */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    width: 100% !important;
+  }
+}
+
+/* 7) Summary panel spacing + prevent overflow */
+@media (max-width: 640px) {
+  #booking .bg-slate-900\/50 {
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  /* Total amount responsive */
+  #total-amount {
+    font-size: 26px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* 8) Navbar & brand text responsive */
+@media (max-width: 640px) {
+  #navbar .text-2xl {
+    font-size: 16px !important;
+    line-height: 1.2 !important;
+  }
+  #navbar .w-10.h-10 {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+/* 9) Hero text responsive */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+  }
+}
+
+/* 10) Fix common Tailwind negative margin issue on some mobiles */
+@media (max-width: 640px) {
+  #booking .-mt-10,
+  #booking .-mt-12,
+  #booking .-mt-16,
+  #booking .-mt-20 {
+    margin-top: -1.5rem !important;
+  }
+}
+
+/* 11) If any parent has overflow hidden causing "cards not visible", neutralize */
+@media (max-width: 640px) {
+  #booking,
+  #booking * {
+    overflow: visible;
+  }
+}
+
